@@ -17,3 +17,20 @@ DHT11 → ESP8266 (MicroPython) → FastAPI (Python) → Streamlit Dashboard
 
 ### 3️⃣ Install dependencies
     pip install -r requirements.txt
+
+## 🖥️ Run on Your Computer
+### 1️⃣ Start the FastAPI server
+    python server.py
+### 2️⃣ Start the Streamlit dashboard
+    streamlit run app.py
+### 3️⃣ Run main.py
+
+🧠 How It Works
+
+The ESP8266 connects to Wi-Fi and reads DHT11 sensor data.
+
+Every 5 seconds, it sends temperature and humidity to the FastAPI backend.
+
+FastAPI stores the latest reading in memory.
+
+Streamlit continuously fetches /latest and displays live updates.
