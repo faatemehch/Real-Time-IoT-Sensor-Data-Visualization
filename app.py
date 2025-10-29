@@ -1,12 +1,13 @@
 import streamlit as st
 import requests
 import time
+from decouple import config
 
 st.title("DHT11 Live Data via FastAPI")
 
 temp_display = st.empty()
 hum_display = st.empty()
-url = "http://192.168.1.36:8000/latest"
+url = config("SERVER_URL")+"latest"
 
 while True:
     try:
@@ -16,5 +17,5 @@ while True:
         hum_display.write(f"💧 Humidity: {data['hum']}%")
     except:
         st.write("Error fetching data")
-        
+
     time.sleep(5)
